@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"google.golang.org/grpc"
+	"grpc_auth/authentication"
 	pb "grpc_auth/helloworld/helloworld"
 	"log"
 	"net"
@@ -14,12 +15,15 @@ const (
 
 // server is used to implement helloworld.GreeterServer.
 type server struct {
-	pb.UnimplementedGreeterServer
+	auth *authentication.Authentication
 }
 
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
+	if err := s.auth.Auth(ctx); err != nil {
+		return nil, err
+	}
 	return &pb.HelloReply{Message: "Hello " + in.GetName() + "!"}, nil
 }
 

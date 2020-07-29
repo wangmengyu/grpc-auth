@@ -1,6 +1,12 @@
 package authentication
 
-import "context"
+import (
+	"context"
+	"fmt"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/metadata"
+	"google.golang.org/grpc/status"
+)
 
 type Authentication struct {
 	User     string
@@ -19,4 +25,31 @@ func (a *Authentication) GetRequestMetadata(context.Context, ...string) (map[str
 */
 func (a *Authentication) RequireTransportSecurity() bool {
 	return false
+}
+
+func (a *Authentication) Auth(ctx context.Context) error {
+	md, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		return fmt.Errorf("missing credentials")
+	}
+	fmt.Println("md:", md)
+
+	var appid string
+	var appkey string
+
+	if val, ok := md["user"]; ok {
+		appid = val[0]
+	}
+	if val, ok := md["password"]; ok {
+		appkey = val[0]
+	}
+
+	fmt.Printf("appid=%s, appkey=%s\n", appid, appkey)
+
+	if appid != "admin" || appkey != "admin" {
+		// 此处要验证key的正确性
+		return status.Errorf(codes.Unauthenticated, "invalid token")
+	}
+
+	return nil
 }

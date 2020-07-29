@@ -3,10 +3,9 @@ package main
 import (
 	"context"
 	"google.golang.org/grpc"
+	"grpc_auth/authentication"
 	pb "grpc_auth/helloworld/helloworld"
 	"log"
-	"os"
-	"time"
 )
 
 const (
@@ -15,8 +14,12 @@ const (
 )
 
 func main() {
+	auth := authentication.Authentication{
+		User:     "wmy",
+		Password: "555",
+	}
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithPerRPCCredentials(&auth))
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -24,13 +27,8 @@ func main() {
 	c := pb.NewGreeterClient(conn)
 
 	// Contact the server and print out its response.
-	name := defaultName
-	if len(os.Args) > 1 {
-		name = os.Args[1]
-	}
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
+	ctx := context.Background()
+	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: "wmy"})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
