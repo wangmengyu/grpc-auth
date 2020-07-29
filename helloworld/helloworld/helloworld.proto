@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "io.grpc.examples";
+
+package  helloworld;
+
+//服务端定义
+service Greeter {
+  //发送一个问候请求,返回问候的回复
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+//请求消息包含一个用户名
+message HelloRequest {
+  string name = 1;
+}
+
+//响应消息包含问候内容
+message HelloReply {
+  string message = 1;
+}
