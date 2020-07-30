@@ -98,6 +98,63 @@ func (s *server) Login(ctx context.Context, in *pb.LoginReq) (*pb.LoginRep, erro
 	return &pb.LoginRep{Token: tokenString}, nil
 }
 
+func (s *server) Welcome(ctx context.Context, in *pb.WelReq) (*pb.WelRep, error) {
+
+	tknStr := in.Token
+
+	claims := &Claims{}
+
+	tkn, err := jwt.ParseWithClaims(tknStr, claims, func(token *jwt.Token) (interface{}, error) {
+		return jwtKey, nil
+	})
+	if err != nil {
+		if err == jwt.ErrSignatureInvalid {
+			return nil, err
+		}
+
+	}
+	if !tkn.Valid {
+		return nil, fmt.Errorf("valid token")
+	}
+
+	fmt.Printf("Welcome %s!\n", claims.Username)
+	return new(pb.WelRep), nil
+
+}
+
+func (s *server) Refresh(ctx context.Context, in *pb.RefReq) (*pb.RefRep, error) {
+
+	// (BEGIN) The code uptil this point is the same as the first part of the `Welcome` route
+
+	tknStr := in.GetToken()
+	claims := &Claims{}
+	tkn, err := jwt.ParseWithClaims(tknStr, claims, func(token *jwt.Token) (interface{}, error) {
+		return jwtKey, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	if !tkn.Valid {
+		return nil, fmt.Errorf("token valid error")
+	}
+	// (END) The code up-till this point is the same as the first part of the `Welcome` route
+
+	// Now, create a new token for the current use, with a renewed expiration time
+	expirationTime := time.Now().Add(1 * time.Hour)
+	claims.ExpiresAt = expirationTime.Unix()
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	tokenString, err := token.SignedString(jwtKey)
+	if err != nil {
+		return nil, err
+	}
+
+	// Set the new token as the users `token` cookie
+	return &pb.RefRep{
+		Token: tokenString,
+	}, nil
+
+}
+
 func main() {
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
