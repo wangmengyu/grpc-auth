@@ -107,7 +107,7 @@ func (a *Authentication) CreateToken(cred Credentials) (string, error) {
 
 	// Declare the expiration time of the token
 	// here, we have kept it as 50 minutes
-	expirationTime := time.Now().Add(60 * time.Minute)
+	expirationTime := time.Now().Add(5 * time.Minute)
 	// Create the JWT claims, which includes the username and expiry time
 	claims := &Claims{
 		Username: creds.Username,
@@ -156,7 +156,12 @@ func (a *Authentication) RefreshToken(ctx context.Context) (string, error) {
 	if !tkn.Valid {
 		return "", fmt.Errorf("token valid error")
 	}
-	expirationTime := time.Now().Add(1 * time.Hour)
+
+	if time.Unix(claims.ExpiresAt, 0).Sub(time.Now()) > 30*time.Second {
+		return "", fmt.Errorf("刷新频率过高, 最多在过期之前30秒给予刷新机会")
+	}
+
+	expirationTime := time.Now().Add(5 * time.Minute)
 	claims.ExpiresAt = expirationTime.Unix()
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := token.SignedString(GetJwtKey())

@@ -42,7 +42,6 @@ func (s *server) Login(ctx context.Context, in *pb.LoginReq) (*pb.LoginRep, erro
 	if err != nil {
 		return nil, err
 	}
-
 	return &pb.LoginRep{Token: tokenString}, nil
 }
 

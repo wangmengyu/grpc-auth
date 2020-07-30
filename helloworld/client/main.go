@@ -16,7 +16,7 @@ const (
 func main() {
 
 	auth := authentication.Authentication{
-		Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk2MTAwMjU0fQ.zJhx9Iiq3TwPbX1WjnwYpl8XhaXxlDcy0Q6K75dDLl8",
+		Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk2MTAwNTg0fQ.kmI3kKmAlyHy87AxIdYHBuimdriyIKR7vEs1EptJWoU",
 	}
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithPerRPCCredentials(&auth))
