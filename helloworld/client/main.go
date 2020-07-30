@@ -15,26 +15,8 @@ const (
 
 func main() {
 
-}
-
-func login() {
-	// 连接 rpc server
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
-	if err != nil {
-
-		return
-	}
-	defer conn.Close()
-	client := channel.NewChannelClient(conn)
-
-	// 保存到本地数据库
-	res, err := client.SaveApp(c, req)
-}
-
-func backup() {
 	auth := authentication.Authentication{
-		User:     "wmy",
-		Password: "555",
+		Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk2MTAwMjU0fQ.zJhx9Iiq3TwPbX1WjnwYpl8XhaXxlDcy0Q6K75dDLl8",
 	}
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithPerRPCCredentials(&auth))
@@ -46,7 +28,7 @@ func backup() {
 
 	// Contact the server and print out its response.
 	ctx := context.Background()
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: "wmy"})
+	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: ""})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}

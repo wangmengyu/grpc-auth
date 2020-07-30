@@ -227,103 +227,16 @@ func (x *LoginRep) GetToken() string {
 	return ""
 }
 
-type WelReq struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-}
-
-func (x *WelReq) Reset() {
-	*x = WelReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_helloworld_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *WelReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WelReq) ProtoMessage() {}
-
-func (x *WelReq) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_helloworld_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WelReq.ProtoReflect.Descriptor instead.
-func (*WelReq) Descriptor() ([]byte, []int) {
-	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *WelReq) GetToken() string {
-	if x != nil {
-		return x.Token
-	}
-	return ""
-}
-
-type WelRep struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *WelRep) Reset() {
-	*x = WelRep{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_helloworld_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *WelRep) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WelRep) ProtoMessage() {}
-
-func (x *WelRep) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_helloworld_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WelRep.ProtoReflect.Descriptor instead.
-func (*WelRep) Descriptor() ([]byte, []int) {
-	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{5}
-}
-
 type RefReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
-
-	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 }
 
 func (x *RefReq) Reset() {
 	*x = RefReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_helloworld_proto_msgTypes[6]
+		mi := &file_helloworld_helloworld_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -336,7 +249,7 @@ func (x *RefReq) String() string {
 func (*RefReq) ProtoMessage() {}
 
 func (x *RefReq) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_helloworld_proto_msgTypes[6]
+	mi := &file_helloworld_helloworld_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,14 +262,7 @@ func (x *RefReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefReq.ProtoReflect.Descriptor instead.
 func (*RefReq) Descriptor() ([]byte, []int) {
-	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *RefReq) GetToken() string {
-	if x != nil {
-		return x.Token
-	}
-	return ""
+	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{4}
 }
 
 type RefRep struct {
@@ -370,7 +276,7 @@ type RefRep struct {
 func (x *RefRep) Reset() {
 	*x = RefRep{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_helloworld_proto_msgTypes[7]
+		mi := &file_helloworld_helloworld_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -383,7 +289,7 @@ func (x *RefRep) String() string {
 func (*RefRep) ProtoMessage() {}
 
 func (x *RefRep) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_helloworld_proto_msgTypes[7]
+	mi := &file_helloworld_helloworld_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -396,7 +302,7 @@ func (x *RefRep) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefRep.ProtoReflect.Descriptor instead.
 func (*RefRep) Descriptor() ([]byte, []int) {
-	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{7}
+	return file_helloworld_helloworld_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *RefRep) GetToken() string {
@@ -422,14 +328,10 @@ var file_helloworld_helloworld_proto_rawDesc = []byte{
 	0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0x20, 0x0a, 0x08, 0x4c, 0x6f, 0x67,
 	0x69, 0x6e, 0x52, 0x65, 0x70, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x1e, 0x0a, 0x06, 0x57,
-	0x65, 0x6c, 0x52, 0x65, 0x71, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x08, 0x0a, 0x06, 0x57,
-	0x65, 0x6c, 0x52, 0x65, 0x70, 0x22, 0x1e, 0x0a, 0x06, 0x52, 0x65, 0x66, 0x52, 0x65, 0x71, 0x12,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x08, 0x0a, 0x06, 0x52,
+	0x65, 0x66, 0x52, 0x65, 0x71, 0x22, 0x1e, 0x0a, 0x06, 0x52, 0x65, 0x66, 0x52, 0x65, 0x70, 0x12,
 	0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x1e, 0x0a, 0x06, 0x52, 0x65, 0x66, 0x52, 0x65, 0x70, 0x12,
-	0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x32, 0xea, 0x01, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65,
+	0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x32, 0xb5, 0x01, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65,
 	0x72, 0x12, 0x3e, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x18, 0x2e,
 	0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77,
@@ -437,15 +339,12 @@ var file_helloworld_helloworld_proto_rawDesc = []byte{
 	0x00, 0x12, 0x35, 0x0a, 0x05, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x14, 0x2e, 0x68, 0x65, 0x6c,
 	0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71,
 	0x1a, 0x14, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x4c, 0x6f,
-	0x67, 0x69, 0x6e, 0x52, 0x65, 0x70, 0x22, 0x00, 0x12, 0x33, 0x0a, 0x07, 0x57, 0x65, 0x6c, 0x63,
-	0x6f, 0x6d, 0x65, 0x12, 0x12, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64,
-	0x2e, 0x57, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x1a, 0x12, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77,
-	0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x57, 0x65, 0x6c, 0x52, 0x65, 0x70, 0x22, 0x00, 0x12, 0x33, 0x0a,
-	0x07, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x12, 0x12, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f,
-	0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x52, 0x65, 0x66, 0x52, 0x65, 0x71, 0x1a, 0x12, 0x2e, 0x68,
-	0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x52, 0x65, 0x66, 0x52, 0x65, 0x70,
-	0x22, 0x00, 0x42, 0x0e, 0x5a, 0x0c, 0x2e, 0x3b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72,
-	0x6c, 0x64, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x67, 0x69, 0x6e, 0x52, 0x65, 0x70, 0x22, 0x00, 0x12, 0x33, 0x0a, 0x07, 0x52, 0x65, 0x66, 0x72,
+	0x65, 0x73, 0x68, 0x12, 0x12, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64,
+	0x2e, 0x52, 0x65, 0x66, 0x52, 0x65, 0x71, 0x1a, 0x12, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77,
+	0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x52, 0x65, 0x66, 0x52, 0x65, 0x70, 0x22, 0x00, 0x42, 0x0e, 0x5a,
+	0x0c, 0x2e, 0x3b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -460,28 +359,24 @@ func file_helloworld_helloworld_proto_rawDescGZIP() []byte {
 	return file_helloworld_helloworld_proto_rawDescData
 }
 
-var file_helloworld_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_helloworld_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_helloworld_helloworld_proto_goTypes = []interface{}{
 	(*HelloRequest)(nil), // 0: helloworld.HelloRequest
 	(*HelloReply)(nil),   // 1: helloworld.HelloReply
 	(*LoginReq)(nil),     // 2: helloworld.LoginReq
 	(*LoginRep)(nil),     // 3: helloworld.LoginRep
-	(*WelReq)(nil),       // 4: helloworld.WelReq
-	(*WelRep)(nil),       // 5: helloworld.WelRep
-	(*RefReq)(nil),       // 6: helloworld.RefReq
-	(*RefRep)(nil),       // 7: helloworld.RefRep
+	(*RefReq)(nil),       // 4: helloworld.RefReq
+	(*RefRep)(nil),       // 5: helloworld.RefRep
 }
 var file_helloworld_helloworld_proto_depIdxs = []int32{
 	0, // 0: helloworld.Greeter.SayHello:input_type -> helloworld.HelloRequest
 	2, // 1: helloworld.Greeter.Login:input_type -> helloworld.LoginReq
-	4, // 2: helloworld.Greeter.Welcome:input_type -> helloworld.WelReq
-	6, // 3: helloworld.Greeter.Refresh:input_type -> helloworld.RefReq
-	1, // 4: helloworld.Greeter.SayHello:output_type -> helloworld.HelloReply
-	3, // 5: helloworld.Greeter.Login:output_type -> helloworld.LoginRep
-	5, // 6: helloworld.Greeter.Welcome:output_type -> helloworld.WelRep
-	7, // 7: helloworld.Greeter.Refresh:output_type -> helloworld.RefRep
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
+	4, // 2: helloworld.Greeter.Refresh:input_type -> helloworld.RefReq
+	1, // 3: helloworld.Greeter.SayHello:output_type -> helloworld.HelloReply
+	3, // 4: helloworld.Greeter.Login:output_type -> helloworld.LoginRep
+	5, // 5: helloworld.Greeter.Refresh:output_type -> helloworld.RefRep
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -542,30 +437,6 @@ func file_helloworld_helloworld_proto_init() {
 			}
 		}
 		file_helloworld_helloworld_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WelReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_helloworld_helloworld_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WelRep); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_helloworld_helloworld_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RefReq); i {
 			case 0:
 				return &v.state
@@ -577,7 +448,7 @@ func file_helloworld_helloworld_proto_init() {
 				return nil
 			}
 		}
-		file_helloworld_helloworld_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_helloworld_helloworld_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RefRep); i {
 			case 0:
 				return &v.state
@@ -596,7 +467,7 @@ func file_helloworld_helloworld_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_helloworld_helloworld_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -625,7 +496,6 @@ type GreeterClient interface {
 	//发送一个问候请求,返回问候的回复
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 	Login(ctx context.Context, in *LoginReq, opts ...grpc.CallOption) (*LoginRep, error)
-	Welcome(ctx context.Context, in *WelReq, opts ...grpc.CallOption) (*WelRep, error)
 	Refresh(ctx context.Context, in *RefReq, opts ...grpc.CallOption) (*RefRep, error)
 }
 
@@ -655,15 +525,6 @@ func (c *greeterClient) Login(ctx context.Context, in *LoginReq, opts ...grpc.Ca
 	return out, nil
 }
 
-func (c *greeterClient) Welcome(ctx context.Context, in *WelReq, opts ...grpc.CallOption) (*WelRep, error) {
-	out := new(WelRep)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/Welcome", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *greeterClient) Refresh(ctx context.Context, in *RefReq, opts ...grpc.CallOption) (*RefRep, error) {
 	out := new(RefRep)
 	err := c.cc.Invoke(ctx, "/helloworld.Greeter/Refresh", in, out, opts...)
@@ -678,7 +539,6 @@ type GreeterServer interface {
 	//发送一个问候请求,返回问候的回复
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
 	Login(context.Context, *LoginReq) (*LoginRep, error)
-	Welcome(context.Context, *WelReq) (*WelRep, error)
 	Refresh(context.Context, *RefReq) (*RefRep, error)
 }
 
@@ -691,9 +551,6 @@ func (*UnimplementedGreeterServer) SayHello(context.Context, *HelloRequest) (*He
 }
 func (*UnimplementedGreeterServer) Login(context.Context, *LoginReq) (*LoginRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
-}
-func (*UnimplementedGreeterServer) Welcome(context.Context, *WelReq) (*WelRep, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Welcome not implemented")
 }
 func (*UnimplementedGreeterServer) Refresh(context.Context, *RefReq) (*RefRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Refresh not implemented")
@@ -739,24 +596,6 @@ func _Greeter_Login_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Greeter_Welcome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WelReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreeterServer).Welcome(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/helloworld.Greeter/Welcome",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).Welcome(ctx, req.(*WelReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Greeter_Refresh_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RefReq)
 	if err := dec(in); err != nil {
@@ -786,10 +625,6 @@ var _Greeter_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Login",
 			Handler:    _Greeter_Login_Handler,
-		},
-		{
-			MethodName: "Welcome",
-			Handler:    _Greeter_Welcome_Handler,
 		},
 		{
 			MethodName: "Refresh",

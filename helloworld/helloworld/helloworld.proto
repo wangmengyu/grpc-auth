@@ -9,7 +9,6 @@ service Greeter {
   //发送一个问候请求,返回问候的回复
   rpc SayHello (HelloRequest) returns (HelloReply) {}
   rpc Login(LoginReq) returns (LoginRep) {}
-  rpc Welcome(WelReq) returns (WelRep) {}
   rpc Refresh(RefReq) returns (RefRep) {}
 
 }
@@ -31,16 +30,9 @@ message LoginRep{
   string token=1;
 }
 
-message WelReq{
-  string token=1;
-}
 
-message WelRep {
-
-}
 
 message RefReq{
-  string token=1;
 }
 
 message RefRep{
