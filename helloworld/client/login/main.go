@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"google.golang.org/grpc"
 	"grpc_auth/authentication"
 	pb "grpc_auth/helloworld/helloworld"
@@ -13,22 +14,35 @@ const (
 	defaultName = "wmy"
 )
 
-func main() {
+var ctx context.Context
 
+func init() {
+	ctx = context.Background()
 }
 
-func login() {
+func main() {
 	// 连接 rpc server
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
-
+		log.Println(err.Error())
 		return
 	}
 	defer conn.Close()
-	client := channel.NewChannelClient(conn)
+	client := pb.NewGreeterClient(conn)
 
 	// 保存到本地数据库
-	res, err := client.SaveApp(c, req)
+	req := new(pb.LoginReq)
+	req.Username = "admin"
+	req.Password = "admin"
+	res, err := client.Login(ctx, req)
+
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
+
+	fmt.Println(res)
+
 }
 
 func backup() {
@@ -45,7 +59,7 @@ func backup() {
 	c := pb.NewGreeterClient(conn)
 
 	// Contact the server and print out its response.
-	ctx := context.Background()
+
 	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: "wmy"})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)

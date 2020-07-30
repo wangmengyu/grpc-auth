@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "io.grpc.examples";
+option go_package = ".;helloworld";
 
 package  helloworld;
 
@@ -8,6 +8,7 @@ package  helloworld;
 service Greeter {
   //发送一个问候请求,返回问候的回复
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Login(LoginReq) returns (LoginRep) {}
 }
 //请求消息包含一个用户名
 message HelloRequest {
@@ -17,4 +18,12 @@ message HelloRequest {
 //响应消息包含问候内容
 message HelloReply {
   string message = 1;
+}
+
+message LoginReq {
+  string username=1;
+  string password=2;
+}
+message LoginRep{
+  string token=1;
 }
