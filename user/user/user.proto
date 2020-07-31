@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = ".;user";
+
+package  user;
+
+//服务端定义
+service User {
+//发送一个问候请求,返回问候的回复
+rpc Info (InfoReq) returns (InfoRep) {}
+rpc List (ListReq) returns (stream InfoRep) {}
+}
+
+message InfoReq {
+
+}
+message InfoRep {
+	string username=1;
+	string password=2;
+}
+
+message ListReq{
+
+}
+

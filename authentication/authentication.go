@@ -12,7 +12,7 @@ import (
 )
 
 type Authentication struct {
-	Token string
+	Token string `json:"token"`
 }
 type Claims struct {
 	Username string `json:"username"`
@@ -32,6 +32,21 @@ func GetJwtKey() []byte {
 var users = map[string]string{
 	"admin": "admin",
 	"test":  "test",
+}
+
+/**
+  获得用户列表
+*/
+func GetUserList() map[string]string {
+	return users
+}
+
+/**
+  根据用户名获得密码
+*/
+func GetPwdByUser(username string) (string, bool) {
+	pwd, ok := users[username]
+	return pwd, ok
 }
 
 /**
@@ -107,7 +122,7 @@ func (a *Authentication) CreateToken(cred Credentials) (string, error) {
 
 	// Declare the expiration time of the token
 	// here, we have kept it as 50 minutes
-	expirationTime := time.Now().Add(5 * time.Minute)
+	expirationTime := time.Now().Add(60 * time.Minute)
 	// Create the JWT claims, which includes the username and expiry time
 	claims := &Claims{
 		Username: creds.Username,
@@ -161,7 +176,7 @@ func (a *Authentication) RefreshToken(ctx context.Context) (string, error) {
 		return "", fmt.Errorf("刷新频率过高, 最多在过期之前30秒给予刷新机会")
 	}
 
-	expirationTime := time.Now().Add(5 * time.Minute)
+	expirationTime := time.Now().Add(60 * time.Minute)
 	claims.ExpiresAt = expirationTime.Unix()
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := token.SignedString(GetJwtKey())
